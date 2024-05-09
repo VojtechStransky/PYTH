@@ -1,1 +1,1 @@
-# Zapoctovy program predmety PYTH
+# Zapoctovy program predmetu PYTH
