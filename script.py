@@ -39,20 +39,20 @@ def euler(u, h):
 
 
 # metoda Leap-Frog
-def leapfrog(uPrew, u, h):
+def leapfrog(u_prew, u, h):
     if h <= 0:
         raise Exception("h is not valid")
 
-    return uPrew + 2 * h * f(u)
+    return u_prew + 2 * h * f(u)
 
 
 # Bulirsch-Stoerova Metoda
-def bulirsch_stoer(uPrew, u, h):
+def bulirsch_stoer(u_prew, u, h):
     if h <= 0:
         raise Exception("h is not valid")
 
-    u_1 = leapfrog(uPrew, u, h)
-    u_2 = leapfrog(uPrew, u, 2 * h)
+    u_1 = leapfrog(u_prew, u, h)
+    u_2 = leapfrog(u_prew, u, 2 * h)
 
     return (4 / 3) * u_1 - (1 / 3) * u_2
 
@@ -66,13 +66,13 @@ i = 0
 while t < T:
     t = t + h
 
-    uPrew1 = uPrew
-    uPrew = u
+    u_prew1 = u_prew
+    u_prew = u
 
     if i == 0:
         u = euler(u, h)
     else:
-        u = bulirsch_stoer(uPrew1, u, h)
+        u = bulirsch_stoer(u_prew1, u, h)
 
     i = i + 1
 
